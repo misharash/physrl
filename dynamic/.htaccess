@@ -1,0 +1,20 @@
+RewriteBase /
+
+DirectoryIndex index.php
+
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+php_value file_uploads On
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+
+FileETag MTime Size
+<ifmodule mod_expires.c>
+<filesmatch ".(jpg|gif|png|css|js)$">
+ExpiresActive on
+ExpiresDefault "access plus 1 year"
+</filesmatch>
+</ifmodule>
